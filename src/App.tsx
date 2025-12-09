@@ -1,5 +1,3 @@
-'use client';
-
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import AboutHero from './components/AboutHero';
@@ -13,7 +11,7 @@ import PublisherServices from './components/PublisherServices';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function Home() {
+export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />

@@ -1,21 +1,15 @@
-'use client';
-
 import { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    company_email: '',
-    phone_no: '',
-    website_uri: '',
-    company_type: '',
-    company_role: '',
+    firstName: '',
+    lastName: '',
+    companyEmail: '',
+    phoneNo: '',
+    websiteUri: '',
+    companyType: '',
+    companyRole: '',
     department: '',
     message: '',
   });
@@ -24,7 +18,7 @@ export default function Contact() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -47,13 +41,13 @@ export default function Contact() {
 
       setSuccess(true);
       setFormData({
-        first_name: '',
-        last_name: '',
-        company_email: '',
-        phone_no: '',
-        website_uri: '',
-        company_type: '',
-        company_role: '',
+        firstName: '',
+        lastName: '',
+        companyEmail: '',
+        phoneNo: '',
+        websiteUri: '',
+        companyType: '',
+        companyRole: '',
         department: '',
         message: '',
       });
@@ -67,14 +61,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 py-16 md:py-24">
+    <section id="contact" className="bg-gradient-to-br from-amber-50 to-orange-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="text-gray-900">Contact Us</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent">for Assistance</span>
+              <span className="text-orange-500">for Assistance</span>
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               Feel free to reach out to us using the provided contact information if you require any assistance. Our dedicated team is here to help and address your inquiries promptly.
@@ -86,75 +80,75 @@ export default function Contact() {
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="text"
-                  name="first_name"
+                  name="firstName"
                   placeholder="First Name *"
-                  value={formData.first_name}
+                  value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
                 <input
                   type="text"
-                  name="last_name"
+                  name="lastName"
                   placeholder="Last Name *"
-                  value={formData.last_name}
+                  value={formData.lastName}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="email"
-                  name="company_email"
+                  name="companyEmail"
                   placeholder="Company Email *"
-                  value={formData.company_email}
+                  value={formData.companyEmail}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
                 <input
                   type="tel"
-                  name="phone_no"
+                  name="phoneNo"
                   placeholder="Phone No *"
-                  value={formData.phone_no}
+                  value={formData.phoneNo}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="url"
-                  name="website_uri"
+                  name="websiteUri"
                   placeholder="Website URI *"
-                  value={formData.website_uri}
+                  value={formData.websiteUri}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
                 <input
                   type="text"
-                  name="company_type"
+                  name="companyType"
                   placeholder="Company Type *"
-                  value={formData.company_type}
+                  value={formData.companyType}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <input
                   type="text"
-                  name="company_role"
+                  name="companyRole"
                   placeholder="Company Role *"
-                  value={formData.company_role}
+                  value={formData.companyRole}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
                 <input
                   type="text"
@@ -163,7 +157,7 @@ export default function Contact() {
                   value={formData.department}
                   onChange={handleChange}
                   required
-                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500"
+                  className="bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500"
                 />
               </div>
 
@@ -174,7 +168,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500 resize-none"
+                className="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder-gray-500 resize-none"
               ></textarea>
 
               {error && (
@@ -192,7 +186,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Sending...' : 'Send message'}
               </button>

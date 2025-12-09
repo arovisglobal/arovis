@@ -48,7 +48,7 @@ export default function PublisherServices() {
             return (
               <div key={index} className="text-center">
                 <div className="flex justify-center mb-6">
-                  <div className="bg-purple-600 p-6 rounded-full">
+                  <div className="bg-orange-500 p-6 rounded-full">
                     <Icon size={32} className="text-white" />
                   </div>
                 </div>
