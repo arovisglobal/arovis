@@ -35,7 +35,7 @@ export default function AdvertiserServices() {
   ];
 
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-gray-500 text-sm uppercase tracking-wide mb-2">Our Solutions</p>
@@ -48,7 +48,7 @@ export default function AdvertiserServices() {
             return (
               <div key={index} className="text-center">
                 <div className="flex justify-center mb-6">
-                  <div className="bg-orange-500 p-6 rounded-full">
+                  <div className="bg-red-500 p-6 rounded-full">
                     <Icon size={32} className="text-white" />
                   </div>
                 </div>
